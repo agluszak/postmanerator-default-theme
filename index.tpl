@@ -69,25 +69,27 @@
 
                 {{ range .Requests }}
                 {{ $req := . }}
+                {{ $id := requestId $req }}
                 <div class="request">
 
-                    <h3 id="request-{{ slugify $req.Name }}">
+                    <h3 id="request-{{ $id }}">
+                        <strong>{{ $req.Method }}</strong>
                         {{ $req.Name }}
-                        <a href="#request-{{ slugify $req.Name }}"><i class="glyphicon glyphicon-link"></i></a>
+                        <a href="#request-{{ $id }}"><i class="glyphicon glyphicon-link"></i></a>
                     </h3>
 
                     <div>{{ markdown $req.Description }}</div>
 
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#request-{{ slugify $req.Name }}-example-curl" data-toggle="tab">Curl</a></li>
-                            <li role="presentation"><a href="#request-{{ slugify $req.Name }}-example-http" data-toggle="tab">HTTP</a></li>
+                            <li role="presentation" class="active"><a href="#request-{{ $id }}-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-{{ $id }}-example-http" data-toggle="tab">HTTP</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="request-{{ slugify $req.Name }}-example-curl">
+                            <div class="tab-pane active" id="request-{{ $id }}-example-curl">
                                 <pre><code class="hljs curl">{{ curlSnippet $req }}</code></pre>
                             </div>
-                            <div class="tab-pane" id="request-{{ slugify $req.Name }}-example-http">
+                            <div class="tab-pane" id="request-{{ $id }}-example-http">
                                 <pre><code class="hljs http">{{ httpSnippet $req }}</code></pre>
                             </div>
                         </div>
@@ -98,7 +100,7 @@
                         <ul class="nav nav-tabs" role="tablist">
                             {{ range $index, $res := . }}
                             <li role="presentation"{{ if eq $index 0 }} class="active"{{ end }}>
-                                <a href="#request-{{ slugify $req.Name }}-responses-{{ $res.ID }}" data-toggle="tab">
+                                <a href="#request-{{ $id }}-responses-{{ $res.ID }}" data-toggle="tab">
                                     {{ if eq (len $req.Responses) 1 }}
                                     Response
                                     {{ else}}
@@ -110,7 +112,7 @@
                         </ul>
                         <div class="tab-content">
                             {{ range $index, $res := . }}
-                            <div class="tab-pane{{ if eq $index 0 }} active{{ end }}" id="request-{{ slugify $req.Name }}-responses-{{ $res.ID }}">
+                            <div class="tab-pane{{ if eq $index 0 }} active{{ end }}" id="request-{{ $id }}-responses-{{ $res.ID }}">
                                 <table class="table table-bordered">
                                     <tr><th style="width: 20%;">Status</th><td>{{ $res.StatusCode }} {{ $res.Status }}</td></tr>
                                     {{ range $res.Headers }}
@@ -147,25 +149,26 @@
 
                     {{ range $folder.Requests }}
                     {{ $req := . }}
+                    {{ $id := requestId $req }}
                     <div class="request">
 
-                        <h4 id="request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}">
+                        <h4 id="request-{{ slugify $folder.Name }}-{{ $id }}">
                             {{ $req.Name }}
-                            <a href="#request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}"><i class="glyphicon glyphicon-link"></i></a>
+                            <a href="#request-{{ slugify $folder.Name }}-{{ $id }}"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
                         <div>{{ markdown $req.Description }}</div>
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}-example-curl" data-toggle="tab">Curl</a></li>
-                                <li role="presentation"><a href="#request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}-example-http" data-toggle="tab">HTTP</a></li>
+                                <li role="presentation" class="active"><a href="#request-{{ slugify $folder.Name }}-{{ $id }}-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-{{ slugify $folder.Name }}-{{ $id }}-example-http" data-toggle="tab">HTTP</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}-example-curl">
+                                <div class="tab-pane active" id="request-{{ slugify $folder.Name }}-{{ $id }}-example-curl">
                                     <pre><code class="hljs curl">{{ curlSnippet $req }}</code></pre>
                                 </div>
-                                <div class="tab-pane" id="request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}-example-http">
+                                <div class="tab-pane" id="request-{{ slugify $folder.Name }}-{{ $id }}-example-http">
                                     <pre><code class="hljs http">{{ httpSnippet $req }}</code></pre>
                                 </div>
                             </div>
@@ -176,7 +179,7 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 {{ range $index, $res := . }}
                                 <li role="presentation"{{ if eq $index 0 }} class="active"{{ end }}>
-                                    <a href="#request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}-responses-{{ $res.ID }}" data-toggle="tab">
+                                    <a href="#request-{{ slugify $folder.Name }}-{{ $id }}-responses-{{ $res.ID }}" data-toggle="tab">
                                         {{ if eq (len $req.Responses) 1 }}
                                             Response
                                         {{ else}}
@@ -188,7 +191,7 @@
                             </ul>
                             <div class="tab-content">
                                 {{ range $index, $res := . }}
-                                <div class="tab-pane{{ if eq $index 0 }} active{{ end }}" id="request-{{ slugify $folder.Name }}-{{ slugify $req.Name }}-responses-{{ $res.ID }}">
+                                <div class="tab-pane{{ if eq $index 0 }} active{{ end }}" id="request-{{ slugify $folder.Name }}-{{ $id }}-responses-{{ $res.ID }}">
                                     <table class="table table-bordered">
                                         <tr><th style="width: 20%;">Status</th><td>{{ $res.StatusCode }} {{ $res.Status }}</td></tr>
                                         {{ range $res.Headers }}

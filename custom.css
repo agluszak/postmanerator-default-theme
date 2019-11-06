@@ -125,3 +125,7 @@ pre code {
     position: absolute;
     padding: 15px 15px 15px 250px;
 }
+
+strong {
+    font-weight: bold;
+}
