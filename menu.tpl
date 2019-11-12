@@ -4,37 +4,38 @@
             <a href="#doc-general-notes">General notes</a>
         </li>
         {{ with $structures := .Structures }}
-        <li>
-            <a href="#doc-api-structures">API structures</a>
-            <ul>
-                {{ range $structures }}
-                <li>
-                    <a href="#struct-{{ .Name }}">{{ .Name }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </li>
+            <li>
+                <a href="#doc-api-structures">API structures</a>
+                <ul>
+                    {{ range $structures }}
+                        <li>
+                            <a href="#struct-{{ .Name }}">{{ .Name }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </li>
         {{ end }}
         <li>
             <a href="#doc-api-detail">API detail</a>
         </li>
         {{ range .Requests }}
-        <li>
-            <a href="#request-{{ slugify .Name }}">{{ .Name }}</a>
-        </li>
+            <li>
+                <a href="#request-{{ requestId . }}">[{{ .Method }}] {{ .Name }}</a>
+            </li>
         {{ end }}
         {{ range .Folders }}
-        {{ $folder := . }}
-        <li>
-            <a href="#folder-{{ slugify $folder.Name }}">{{ $folder.Name }}</a>
-            <ul>
-                {{ range $folder.Requests }}
-                <li>
-                    <a href="#request-{{ slugify $folder.Name }}-{{ slugify .Name }}">{{ .Name }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </li>
+            {{ $folder := . }}
+            <li>
+                <a href="#folder-{{ slugify $folder.Name }}">{{ $folder.Name }}</a>
+                <ul>
+                    {{ range $folder.Requests }}
+                        <li>
+                            <a href="#request-{{ slugify $folder.Name }}-{{ requestId . }}">[{{ .Method }}]
+                                {{ .Name }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </li>
         {{ end }}
     </ul>
 </div>
