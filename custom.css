@@ -42,15 +42,6 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
     margin-bottom: 8px;
 }
 
-pre {
-    border-radius: 0px;
-    border: none;
-}
-
-pre code {
-    margin: -9.5px;
-}
-
 .request {
     margin-top: 12px;
     margin-bottom: 24px;
