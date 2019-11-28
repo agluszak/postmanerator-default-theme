@@ -1,5 +1,6 @@
 <div class="scrollspy">
     <ul id="main-menu" data-spy="affix" class="nav flex-column">
+        <img src="https://client-bpe-measure.fra1.cdn.digitaloceanspaces.com/logo_klix_web-173498b28578b9fba2e0fd7276e2604e.png">
         <li class="nav-item">
             <a href="#doc-general-notes" class="nav-link">General notes</a>
         </li>

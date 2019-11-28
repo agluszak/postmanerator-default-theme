@@ -3,11 +3,55 @@ body {
 }
 
 h1 {
-    margin-top: 5px;
+    border-bottom: 1px solid black;
+    padding-top: 12.561pt;
+    padding-left: 12.561pt;
+    border-bottom: 1pt solid black;
+    padding-bottom: 12.561pt;
+    margin-left: 0;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.hljs {
+    background: #fafafa;
+    padding-left: 12.561pt;
+}
+
+.hljs-comment {
+    color: #02a98f;
+}
+
+.hljs-attr {
+    color: #02a98f
+}
+
+.hljs-attribute {
+    color: #02a98f
+}
+
+.hljs, .hljs-tag, .hljs-subst {
+    color: black;
+}
+
+.hljs-number, .hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
+    color: #a90202;
+}
+
+p {
+    padding: 12.561pt;
 }
 
 h1, h2, h3, h4 {
-    color: #2b2b2b;
+    color: #00a990;
+    padding-top: 12.561pt;
+    padding-left: 12.561pt;
+    border-bottom: 1pt solid black;
+    padding-bottom: 12.561pt;
+    margin-left: 0;
+    margin-bottom: 0 !important;
 }
 
 h2:after {
@@ -25,7 +69,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
-    color: #a5a5a5;
+    color: #bbbbbb;
     display: initial;
 }
 
@@ -55,7 +99,6 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
     margin-bottom: 0px;
 }
 
-
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
@@ -65,12 +108,15 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
     margin-left: -250px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #2b2b2b;
+    background: #ffffff;
+    color: black;
     padding-top: 20px;
+    border-right: 1px solid black;
 }
 
 #sidebar-wrapper ul {
     width: 250px;
+    border-right: black;
 }
 
 #sidebar-wrapper ul li {
@@ -84,7 +130,7 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
 
 #sidebar-wrapper ul li a {
     display: block;
-    color: #ECF0F1;
+    color: #000000;
     padding: 6px 15px;
 }
 
@@ -99,7 +145,6 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
 #sidebar-wrapper ul li a:hover,
 #sidebar-wrapper ul li a:focus {
     color: #e0c46c;
-    border-right: solid 1px #e0c46c;
 }
 
 #sidebar-wrapper ul li.active > a {
@@ -119,4 +164,82 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
 
 strong {
     font-weight: bold;
+}
+
+body {
+    background: white !important;
+    margin-bottom: 9.77mm;
+}
+
+table {
+    width: calc(100% + 12pt) !important;
+    page-break-inside: auto;
+}
+
+table [rowspan] + th {
+    border-left: 1px solid;
+}
+
+table thead {
+    display: table-row-group;
+}
+
+table th, td {
+    border-color: black !important;
+}
+
+table th:first-child, td:first-child {
+    padding-left: 12.561pt;
+}
+
+table td.print-no-indent, th.print-no-indent {
+    padding-left: 0;
+}
+
+table th:last-child, td:last-child {
+    padding-right: 36pt;
+}
+
+table tr {
+    border-left: 1pt solid black;
+    page-break-inside: avoid;
+    page-break-after: auto;
+}
+
+table thead tr:first-child {
+    border-top: 1pt solid black;
+}
+
+table.vertically {
+    max-width: 80%;
+}
+
+table.vertically td, th, tr {
+    border: none;
+    padding: 0.1cm;
+}
+
+table.vertically td:last-child {
+    text-align: right;
+}
+
+table.vertically td:first-child, th:first-child {
+    text-align: left;
+}
+
+table.vertically td:first-child, th:first-child {
+    padding-left: 0;
+}
+
+.nav {
+    padding-left: 12.561pt;
+}
+
+.nav.nav-pills .nav-link.active {
+    border-radius: 0;
+    background: #02a98f;
+}
+
+.tab-content {
+    padding-left: 12.561pt;
 }
